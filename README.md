@@ -672,6 +672,16 @@ First parameter is number of method to use, second is optional command (executab
      * Fixed in: unfixed :see_no_evil:
         * How: -
       * Code status: added in v3.5.2
+66. Author: Arush Agarampur
+     * Type: Elevated COM interface 
+     * Method: IFwCplLua
+     * Target(s): Shell protocol registry entry and environment variables
+     * Component(s): Attacker defined
+     * Implementation: ucmFwCplLuaMethod2
+     * Works from: Windows 7 (7600)
+     * Fixed in: unfixed :see_no_evil:
+        * How: -
+      * Code status: added in v3.5.3
 
 </details>
 

