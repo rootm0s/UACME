@@ -6,7 +6,7 @@
 *
 *  VERSION:     3.53
 *
-*  DATE:        08 Nov 2020
+*  DATE:        11 Nov 2020
 *
 * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
 * ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED
@@ -3548,7 +3548,7 @@ NTSTATUS supRegisterShellAssoc(
         return STATUS_INVALID_PARAMETER_3;
 
     if (lpszPayload == NULL)
-        return STATUS_INVALID_PARAMETER_3;
+        return STATUS_INVALID_PARAMETER_4;
 
     ntStatus = supOpenClassesKey(NULL, &classesKey);
     if (!NT_SUCCESS(ntStatus))
