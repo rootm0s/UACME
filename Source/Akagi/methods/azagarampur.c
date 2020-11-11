@@ -9,6 +9,13 @@
 *  DATE:        09 Nov 2020
 *
 *  UAC bypass methods from AzAgarampur.
+* 
+*  For description please visit original URL
+* 
+*  https://github.com/AzAgarampur/byeintegrity-uac
+*  https://github.com/AzAgarampur/byeintegrity2-uac
+*  https://github.com/AzAgarampur/byeintegrity3-uac
+*  https://github.com/AzAgarampur/byeintegrity4-uac
 *
 * THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
 * ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED
@@ -71,7 +78,6 @@ BOOL ucmxNgenLogLastWrite(
 * Purpose:
 *
 * Bypass UAC by by Dll hijack of Native Image Cache.
-* Original author link: https://github.com/AzAgarampur/byeintegrity-uac
 *
 */
 NTSTATUS ucmNICPoisonMethod(
@@ -318,7 +324,6 @@ NTSTATUS ucmNICPoisonMethod(
 * Purpose:
 *
 * Bypass UAC by IE Admin Add-On Installer COM object.
-* Original author link: https://github.com/AzAgarampur/byeintegrity2-uac
 *
 */
 NTSTATUS ucmIeAddOnInstallMethod(
@@ -549,7 +554,6 @@ NTSTATUS ucmIeAddOnInstallMethod(
 * Purpose:
 *
 * Bypass UAC by SecurityCenter COM object and HTTP protocol registry hijack.
-* Original author link: https://github.com/AzAgarampur/byeintegrity3-uac
 *
 */
 NTSTATUS ucmWscActionProtocolMethod(

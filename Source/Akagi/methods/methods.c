@@ -44,13 +44,13 @@ UCM_API(MethodIeAddOnInstall);
 UCM_API(MethodWscActionProtocol);
 UCM_API(MethodFwCplLua2);
 
-#define UCM_WIN32_NOT_IMPLEMENTED_COUNT 5
-ULONG UCM_WIN32_NOT_IMPLEMENTED[UCM_WIN32_NOT_IMPLEMENTED_COUNT] = {
+ULONG UCM_WIN32_NOT_IMPLEMENTED[] = {
     UacMethodWow64Logger,
     UacMethodEditionUpgradeMgr,
     UacMethodNICPoison,
     UacMethodIeAddOnInstall,
-    UacMethodWscActionProtocol
+    UacMethodWscActionProtocol,
+    MethodFwCplLua2
 };
 
 UCM_API_DISPATCH_ENTRY ucmMethodsDispatchTable[UCM_DISPATCH_ENTRY_MAX] = {
@@ -135,7 +135,7 @@ __forceinline BOOL IsMethodImplementedForWin32(
     _In_ UCM_METHOD Method)
 {
     UINT i;
-    for (i = 0; i < UCM_WIN32_NOT_IMPLEMENTED_COUNT; i++)
+    for (i = 0; i < RTL_NUMBER_OF(UCM_WIN32_NOT_IMPLEMENTED); i++)
         if (UCM_WIN32_NOT_IMPLEMENTED[i] == (ULONG)Method)
             return FALSE;
     return TRUE;
